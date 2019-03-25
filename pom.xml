@@ -5,7 +5,7 @@
 
 	<groupId>pt.zenit.helpers</groupId>
 	<artifactId>db</artifactId>
-	<version>0.0.1-RELEASE</version>
+	<version>0.0.2-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>db</name>
@@ -37,7 +37,20 @@
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0</version>
+			<version>11.2.0.3</version>
 		</dependency>
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>repository-jsr</id>
+			<url>https://repo.jose-rodrigues.info/repository/internal/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>
