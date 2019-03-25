@@ -21,14 +21,14 @@ public class DBInfo {
 
 	private static Connection conn;
 	
-	public DBInfo(Connection conn) {
-		DBInfo.conn = conn;
+	private DBInfo() {
+		throw new AssertionError();
 	}
 	
-    public Collection<DBTable> getDBInfo() {
+    public static Collection<DBTable> getDBInfo() {
         List<DBTable> result= new ArrayList<>();
-        if(conn != null) {
-            try (PreparedStatement smt = conn.prepareStatement(OracleQueries.DB_INFO_QUERY);
+        if(getConn() != null) {
+            try (PreparedStatement smt = getConn().prepareStatement(OracleQueries.DB_INFO_QUERY);
                  ResultSet rs = smt.executeQuery()) {
 
                 while (rs.next()) {
@@ -43,10 +43,10 @@ public class DBInfo {
         return result;
     }
 
-    public Collection<DBColumn> getTableInfo(String tableName) {
+    public static Collection<DBColumn> getTableInfo(String tableName) {
         List<DBColumn> result= new ArrayList<>();
-        if(conn != null) {
-            try (PreparedStatement smt = conn.prepareStatement(OracleQueries.TABLE_INFO_QUERY)) {
+        if(getConn() != null) {
+            try (PreparedStatement smt = getConn().prepareStatement(OracleQueries.TABLE_INFO_QUERY)) {
 
                 smt.setString(1, tableName);
                 ResultSet rs = smt.executeQuery();
@@ -61,4 +61,12 @@ public class DBInfo {
         }
         return result;
     }
+
+	public static Connection getConn() {
+		return conn;
+	}
+
+	public static void setConn(Connection conn) {
+		DBInfo.conn = conn;
+	}
 }

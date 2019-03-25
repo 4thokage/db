@@ -48,7 +48,7 @@ public class JDBCRepository implements Repository {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Attempts to close the connection if it's open
 	 */
 	public static void disconnect() throws SQLException {
 		if (conn != null && !conn.isClosed()) {

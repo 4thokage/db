@@ -14,7 +14,7 @@ public class DBInfoTest {
 
 	@Test
 	public void should_return_empty_collection_when_conn_is_null() {
-		Collection<DBTable> tables = new DBInfo(null).getDBInfo();
+		Collection<DBTable> tables = DBInfo.getDBInfo();
 		Assert.assertTrue(tables.isEmpty());
 	}
 

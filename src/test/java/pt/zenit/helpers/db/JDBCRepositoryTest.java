@@ -12,6 +12,8 @@ import org.junit.Test;
  */
 public class JDBCRepositoryTest {
 	
+	private static int SQL_ERROR_CODE_CONNECTION_REFUSED = 20;
+	
 	@Test(expected = ClassNotFoundException.class)
 	public void should_throw_exception_with_no_driver() throws ClassNotFoundException, SQLException {
 		JDBCRepository.connect("", "");
@@ -27,7 +29,7 @@ public class JDBCRepositoryTest {
 		try {
 			JDBCRepository.connect("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:@localhost:1521:xe");
 		} catch (SQLException e) {
-			Assert.assertTrue(1017 == e.getErrorCode());
+			Assert.assertTrue(SQL_ERROR_CODE_CONNECTION_REFUSED == e.getErrorCode());
 		}
 	}
 }
