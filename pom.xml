@@ -54,10 +54,10 @@
 		</repository>
 	</repositories>
 	<distributionManagement>
-	 	<snapshotRepository>
+		<repository>
       			<id>repository-jsr</id>
-      			<name>Internal Snapshot Repository</name>
+      			<name>Public Snapshot Repository</name>
       			<url>https://repo.jose-rodrigues.info/repository/snapshots/</url>
-    		</snapshotRepository>
+    		</repository>
   	</distributionManagement>
 </project>
