@@ -5,11 +5,11 @@
 
 	<groupId>pt.zenit.helpers</groupId>
 	<artifactId>db</artifactId>
-	<version>0.0.2-RELEASE</version>
+	<version>0.0.1-RELEASE</version>
 	<packaging>jar</packaging>
 
 	<name>db</name>
-	<url>http://maven.apache.org</url>
+	<url>https://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,29 +35,23 @@
 			<version>1.3.0-alpha4</version>
 		</dependency>
 		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.3</version>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>21.1.0.0</version>
 		</dependency>
+
 	</dependencies>
 
-	<repositories>
-		<repository>
-			<id>repository-jsr</id>
-			<url>https://repo.jose-rodrigues.info/repository/internal/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 	<distributionManagement>
 		<repository>
-      			<id>repository-jsr</id>
-      			<name>Public Snapshot Repository</name>
-      			<url>https://repo.jose-rodrigues.info/repository/snapshots/</url>
-    		</repository>
+			<id>github</id>
+			<name>GitHub 4thokage Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/4thokage/db</url>
+		</repository>
+		<snapshotRepository>
+			<id>binze-jsr</id>
+			<name>Public Snapshot Repository</name>
+			<url>https://binze.jose-rodrigues.info/repository/snapshots/</url>
+		</snapshotRepository>
   	</distributionManagement>
 </project>
